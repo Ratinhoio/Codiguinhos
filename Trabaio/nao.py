@@ -19,4 +19,4 @@ elif contador == 1:
 elif contador == 2:
     print("Tu é um cara ocupado")
 else:    print("Tu é um cara muito ativo")
-
+sim
