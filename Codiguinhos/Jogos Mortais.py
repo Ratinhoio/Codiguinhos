@@ -1,6 +1,5 @@
 # Limpar o terminal e mudar o terminal para verde
 import os, time, random
-
 os.system('cls')  # Limpar o terminal
 os.system('color 0a')  # Mudar o terminal para verde
 print("Bem-vindo. Você está prestes a enfrentar o maior desafio da sua vida...")
@@ -67,3 +66,25 @@ time.sleep(0.8)
 os.system('cls')
 print("Aguarde...")
 time.sleep(0.8)
+print("Memorize a sequência de números que aparecerá na tela. Você terá 2 segundos para memorizar cada número.")
+sequencia1 = random.randint(1, 5)
+sequencia2 = random.randint(1, 5)
+sequencia3 = random.randint(1, 5)
+sequencia4 = random.randint(1, 5)
+sequencia5 = random.randint(1, 5)
+print(sequencia1)
+time.sleep(2)
+os.system('cls')
+print(sequencia2)
+time.sleep(2)
+os.system('cls')
+print(sequencia3)
+time.sleep(2)
+os.system('cls')
+print(sequencia4)
+time.sleep(2)
+os.system('cls')
+print(sequencia5)
+time.sleep(2)
+os.system('cls')
+
