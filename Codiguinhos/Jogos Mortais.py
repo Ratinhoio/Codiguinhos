@@ -1,4 +1,3 @@
-# Limpar o terminal e mudar o terminal para verde
 import os, time, random
 os.system('cls')  # Limpar o terminal
 os.system('color 0a')  # Mudar o terminal para verde
