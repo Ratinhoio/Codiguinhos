@@ -23,7 +23,11 @@ chute = int(input("Digite seu chute (1, 2 ou 3): "))
 if chute == numero:
     print("Você acertou!")
 else:
-    print("Você errou!")
+    os.system('cls')
+    print("Meus Deus que azadado!")
+    print("KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK")
+    time.sleep(2)
+    os.system('cls')
     exit()
     # Se o usuário errar, o sistema deve avacalhar chamando ele de azarado e apresentar a mensagem da morte (bem criativa kkk) encerrar o jogo com o comando quit().
 time.sleep(2)
@@ -44,11 +48,14 @@ numero2 = random.randint(1, 10)
 numero3 = random.randint(1, 3)
 calculo = numero2 ** numero3
 print(calculo)
-resposta =int(input(f"Qual é o resultado da operação {numero2} ** {numero3}: "))
+resposta =int(input(f"Qual é o resultado da operação {numero2} ^ {numero3}: "))
 if resposta == numero2 ** numero3:
     print("Você acertou! Próxima fase...")
 else:
-    print("Você errou!")
+    os.system('cls')
+    print("Muito burroKKKKKKKKKKKKKK")
+    time.sleep(2)
+    os.system('cls')
     exit()
 time.sleep(2)
 os.system('cls')

@@ -170,4 +170,5 @@ while True:
     if not fase5():
         continue
     else:
-        break
+        break'
+    gay
