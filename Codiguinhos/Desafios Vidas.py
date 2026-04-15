@@ -31,7 +31,8 @@ def removerAcento(texto):
         if unicodedata.category(c) != 'Mn'
     )
 vidas = 3
-elogios = ["bonito", "lindo", "genio", "perfeito", "cheiroso", "atraente", "sexy", "maravilhoso", "brabo", "inteligente", "gostoso", "esbelto" "calmo", "incrivel"]
+elogios = ["bonito", "lindo", "genio", "perfeito", "cheiroso", "atraente", "sexy", "maravilhoso", "brabo", "inteligente", "gostoso", "esbelto" "calmo", "incrivel", "amoroso", "fofo", "carinhoso", "safado", "gentil", "alegre", "engraçado", "atencioso", "parceiro", "esforçado" ]
+xingamentos = ["chato", "birrento", "lerdo", "ciumento", "teimoso", "desastrado"]
 limpar()
 os.system('color 0a')
 print("Bem-vindo ao desafio ridículo")
