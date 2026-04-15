@@ -1,4 +1,4 @@
-import os, random, time, unicodedata # Importar bibliotecas
+import os, random, time, unicodedata, winsound # Importar bibliotecas
 def limpar():
     os.system('cls')
 def aguarde():
@@ -123,7 +123,6 @@ while vidas > 0:
         continue  # volta pro começo sem perder vida
     if resposta4 in elogios:
        tela(vidas, "Ownnnnnnnn que fofinho, continue assim!")
-       time.sleep(2)
        break
     elif resposta4 == "gay":
         vidas -= 1
@@ -142,21 +141,23 @@ while vidas > 0:
         time.sleep(1.5)
         continue
     elif resposta4 in xingamentos:
-        vidas -= 1
+        vidas -= 3
         limpar()
         print("???????????????????????\nQual o seu problema?")
         time.sleep(2)
     else: 
         vidas -= 1
         tela(vidas, "Não gostei, melhore...")
-        time.sleep(1.5)
+        time.sleep(1)
     
 tempo = time.time() - inicio
+time.sleep(1.5)
+limpar()
 aguarde()
 limpar()
 
 
-if vidas == 0:
+if vidas <= 0:
     os.system('color 0c')
     print("Acabaram suas vidas... Fim de jogo!")
     
