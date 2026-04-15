@@ -30,12 +30,39 @@ def removerAcento(texto):
         c for c in unicodedata.normalize('NFD', texto)
         if unicodedata.category(c) != 'Mn'
     )
+while True:
+    limpar()
+    os.system('color 0b')
+    print("1 - Jogar")
+    print("2 - Instruções (para burros)")
+    print("3 - Sair :(")
+    opcao = input("O que quer fazer? > ")
+    if opcao == "1":
+        break
+    elif opcao == "2":
+        limpar()
+        print("Tu achou mesmo que tinha?")
+        time.sleep(2)
+        print("Deu preguiça de fazer")
+        time.sleep(2)
+    elif opcao == "3":
+        limpar()
+        print("Tiau :(")
+        exit()
+    elif not opcao.isdigit():
+        limpar()
+        print("Só pode número ne burrão")
+        time.sleep(3)
+    else:
+        limpar()
+        print("mano, só tem 3 opções \nE tu ainda consegue errar!")
+        time.sleep(3)
 vidas = 3
-elogios = ["bonito", "lindo", "genio", "perfeito", "cheiroso", "atraente", "sexy", "maravilhoso", "brabo", "inteligente", "gostoso", "esbelto" "calmo", "incrivel", "amoroso", "fofo", "carinhoso", "safado", "gentil", "alegre", "engraçado", "atencioso", "parceiro", "esforçado" ]
-xingamentos = ["chato", "birrento", "lerdo", "ciumento", "teimoso", "desastrado"]
+elogios = ["bonito", "lindo", "genio", "perfeito", "cheiroso", "atraente", "sexy", "maravilhoso", "brabo", "inteligente", "gostoso", "esbelto", "calmo", "incrivel", "amoroso", "fofo", "carinhoso", "safado", "gentil", "alegre", "engraçado", "atencioso", "parceiro", "esforçado"]
+xingamentos = ["chato", "birrento", "lerdo", "ciumento", "teimoso", "desastrado", "burro"]
 limpar()
 os.system('color 0a')
-print("Bem-vindo ao desafio ridículo")
+print("Bem-vindo ao Desafio Ridículo")
 time.sleep(2)
 limpar()
 aguarde()
@@ -95,10 +122,11 @@ while vidas > 0:
         time.sleep(1.5)
         continue  # volta pro começo sem perder vida
     if resposta4 in elogios:
-       tela(vidas, "Adorei a resposta, continue assim")
+       tela(vidas, "Ownnnnnnnn que fofinho, continue assim!")
        time.sleep(2)
        break
     elif resposta4 == "gay":
+        vidas -= 1
         limpar()
         print("Gay? Sério? Se mata vei")
         time.sleep(1.5)
@@ -106,15 +134,21 @@ while vidas > 0:
         time.sleep(1.5)
         continue
     elif resposta4 == "viado":
+        vidas -= 1
         limpar()
         print("Que criatividade hein")
         time.sleep(1.5)
         print("Perdeu uma vida por causa disso")
         time.sleep(1.5)
         continue
+    elif resposta4 in xingamentos:
+        vidas -= 1
+        limpar()
+        print("???????????????????????\nQual o seu problema?")
+        time.sleep(2)
     else: 
         vidas -= 1
-        tela(vidas, "NÃO GOSTEI, melhore...")
+        tela(vidas, "Não gostei, melhore...")
         time.sleep(1.5)
     
 tempo = time.time() - inicio
