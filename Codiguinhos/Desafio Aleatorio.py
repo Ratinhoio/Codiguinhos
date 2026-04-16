@@ -69,10 +69,34 @@ def menu():
             limpar()
             print("mano, só tem 3 opções \nE tu ainda consegue errar!")
             time.sleep(2)
-def recemNascido():
-    limpar()
-    os.system('color0a')
-    print("Bem-vindo ao Desafio Aleatório")
+# def recemNascido():
+limpar()
+vidas = 3
+perguntas = [
+        ["Seu sexo?", "macho"],
+        ["Sua idade", "18"],
+        ["Ano?", "2008"]
+    ]
+pergunta = perguntas[0][0]
+resposta = perguntas[0][1]
+print(pergunta)
+print(resposta)
+p = random.choice(perguntas)
+while True:
+    print(p[0])
+    resp = input(">> ")
+    resp = removerAcento(resp.strip().lower())
     
+    if resp == p[1]:
+        print("Parabéns")
+        break
+    else:
+        print("Sinto muito")
+    
+os.system('color 0a')
+print("Bem-vindo ao Desafio Aleatório")
+    
+
+
     
     
