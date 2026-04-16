@@ -69,11 +69,10 @@ def menu():
             limpar()
             print("mano, só tem 3 opções \nE tu ainda consegue errar!")
             time.sleep(2)
-menu()
-print("gay")
 def recemNascido():
     limpar()
     os.system('color0a')
     print("Bem-vindo ao Desafio Aleatório")
+    
     
     
