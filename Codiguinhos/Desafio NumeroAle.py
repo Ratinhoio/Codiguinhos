@@ -95,10 +95,13 @@ while True:
         print("Só número ne cara")
         dormir(2)
         limpar()
-        continue    
+        break
     resposta = int(resposta)
-    
     if resposta == resultado:
+        limpar()
+        continue
+    else:
+        limpar()
         break
 limpar()
 print("gay")
