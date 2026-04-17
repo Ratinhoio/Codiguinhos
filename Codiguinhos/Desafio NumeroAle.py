@@ -72,27 +72,34 @@ def menu():
 # def recemNascido():
 limpar()
 vidas = 3
-perguntas = [
-        ["Seu sexo?", "macho"],
-        ["Sua idade", "18"],
-        ["Ano?", "2008"]
-    ]
-pergunta = perguntas[0][0]
-resposta = perguntas[0][1]
-print(pergunta)
-print(resposta)
-p = random.choice(perguntas)
+sinais = ["-", "+", "x", "÷"]
+tempoPausado = 0
 while True:
-    print(p[0])
-    resp = input(">> ")
-    resp = removerAcento(resp.strip().lower())
+    num1 = random.randint(1, 10)
+    num2 = random.randint(1, 10)
+    sinal = random.choice(sinais)
+    if sinal == "+":
+        resultado = num1 + num2
+    elif sinal == "-":
+        if num1 < num2:
+            num1, num2 = num2, num1
+        resultado = num1 - num2
+    elif sinal == "x":
+        resultado = num1 * num2
+    elif sinal == "÷":
+        resultado = num1 // num2
+    conta = f"{num1} {sinal} {num2}"
+
+    resposta = input(f"Qual a resposta da equação {conta} > ")
+    if not resposta.isdigit():
+        print("Só número ne cara")
+        dormir(2)
+        limpar()
+        continue    
+    resposta = int(resposta)
     
-    if resp == p[1]:
-        print("Parabéns")
+    if resposta == resultado:
         break
-    else:
-        print("Sinto muito")
-    
-os.system('color 0a')
-print("Bem-vindo ao Desafio Aleatório")
-    
+limpar()
+print("gay")
+dormir(1)
