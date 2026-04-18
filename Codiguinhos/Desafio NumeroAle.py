@@ -87,7 +87,6 @@ while True:
     print(f"Poderes ->", rolada)
     if rolada == "TempoIli":
         tempoIli()
-    limpar()
     tempoPausado = time.time()
     num1 = random.randint(1, 3)
     num2 = random.randint(1, 3)
