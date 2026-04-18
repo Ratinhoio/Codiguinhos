@@ -69,14 +69,28 @@ def menu():
             limpar()
             print("mano, só tem 3 opções \nE tu ainda consegue errar!")
             time.sleep(2)
+    
+# def Dado
+# def Cronômetro
 # def recemNascido():
 limpar()
-vidas = 3
 sinais = ["-", "+", "x", "÷"]
 tempoPausado = 0
+pontuação = 0
+dado = ["TempoIli", "nada"]
+def tempoIli():
+    print("Tempo Ilimitado!")
+rolada = "Por enquanto nada"
 while True:
-    num1 = random.randint(1, 10)
-    num2 = random.randint(1, 10)
+    if pontuação % 5 == 0 and pontuação > 0:
+        rolada = random.choice(dado)
+    print(f"Poderes ->", rolada)
+    if rolada == "TempoIli":
+        tempoIli()
+    limpar()
+    tempoPausado = time.time()
+    num1 = random.randint(1, 3)
+    num2 = random.randint(1, 3)
     sinal = random.choice(sinais)
     if sinal == "+":
         resultado = num1 + num2
@@ -89,20 +103,32 @@ while True:
     elif sinal == "÷":
         resultado = num1 // num2
     conta = f"{num1} {sinal} {num2}"
-
+    inicio = time.time()
     resposta = input(f"Qual a resposta da equação {conta} > ")
+    if rolada == "TempoIli":
+        tempoPausado = time.time() - tempoPausado
+    else:
+        tempoPausado = 0
+    tempo = time.time() - inicio - tempoPausado
+    if tempo > 5:
+        print("Tempo excedido")
+        time.sleep(2)
+        break
     if not resposta.isdigit():
         print("Só número ne cara")
         dormir(2)
         limpar()
-        break
+        continue
     resposta = int(resposta)
     if resposta == resultado:
         limpar()
+        pontuação += 1
         continue
     else:
         limpar()
         break
 limpar()
+os.system('color 0b')
+print(f"Você acertou {pontuação} equações!")
 print("gay")
 dormir(1)
