@@ -67,32 +67,80 @@ def menu():
             time.sleep(2)
         else:
             limpar()
-            print("mano, só tem 3 opções \nE tu ainda consegue errar!")
+            print("mano, só tem 3 opções... \nE tu ainda consegue errar!")
             time.sleep(2)
+def tempoIli():
+    print("Tempo Ilimitado!")
+rolada = "Por enquanto nada"
+    
+# def Dado
+# def Cronômetro
 # def recemNascido():
+menu()
 limpar()
-vidas = 3
-perguntas = [
-        ["Seu sexo?", "macho"],
-        ["Sua idade", "18"],
-        ["Ano?", "2008"]
-    ]
-pergunta = perguntas[0][0]
-resposta = perguntas[0][1]
-print(pergunta)
-print(resposta)
-p = random.choice(perguntas)
-while True:
-    print(p[0])
-    resp = input(">> ")
-    resp = removerAcento(resp.strip().lower())
-    
-    if resp == p[1]:
-        print("Parabéns")
-        break
+sinais = ["-", "+", "x", "÷"]
+tempoPausado = 0
+pontuação = 0
+dado = ["TempoIli", "nada"]
+print("1")
+time.sleep(1)
+limpar()
+print("2")
+time.sleep(1)
+limpar()
+print("3")
+time.sleep(1)
+limpar()
+print("VAI!")
+time.sleep(0.5)
+limpar()
+while True: 
+    if pontuação % 5 == 0 and pontuação > 0:
+        rolada = random.choice(dado)
+    print(f"Poderes ->", rolada)
+    if rolada == "TempoIli":
+        tempoIli()
+    tempoPausado = time.time()
+    num1 = random.randint(1, 3)
+    num2 = random.randint(1, 3)
+    sinal = random.choice(sinais)
+    if sinal == "+":
+        resultado = num1 + num2
+    elif sinal == "-":
+        if num1 < num2:
+            num1, num2 = num2, num1
+        resultado = num1 - num2
+    elif sinal == "x":
+        resultado = num1 * num2
+    elif sinal == "÷":
+        resultado = num1 // num2
+    conta = f"{num1} {sinal} {num2}"
+    inicio = time.time()
+    resposta = input(f"Qual a resposta da equação {conta} > ")
+    if rolada == "TempoIli":
+        tempoPausado = time.time() - tempoPausado
     else:
-        print("Sinto muito")
-    
-os.system('color 0a')
-print("Bem-vindo ao Desafio Aleatório")
-    
+        tempoPausado = 0
+    tempo = time.time() - inicio - tempoPausado
+    if tempo > 5:
+        print("Tempo excedido")
+        time.sleep(2)
+        break
+    if not resposta.isdigit():
+        print("Só número ne cara")
+        dormir(2)
+        limpar()
+        continue
+    resposta = int(resposta)
+    if resposta == resultado:
+        limpar()
+        pontuação += 1
+        continue
+    else:
+        limpar()
+        break
+limpar()
+os.system('color 0c')
+print(f"Você acertou {pontuação} equações!")
+dormir(1)
+s
