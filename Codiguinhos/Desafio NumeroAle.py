@@ -143,4 +143,3 @@ limpar()
 os.system('color 0c')
 print(f"Você acertou {pontuação} equações!")
 dormir(1)
-s
