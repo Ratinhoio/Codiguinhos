@@ -1,20 +1,46 @@
-import calendar, os, time, datetime
-os.system('cls')
-os.system('color 0A')
-ano = int(input("Digite o ano: "))
-mes = int(input("Digite o mês (1-12): "))
-dia = int(input("Digite o dia: "))
-if mes == 0:
+import calendar, os, time
+from datetime import datetime
+def limpar():
     os.system('cls')
-    print(calendar.calendar(ano))
-elif mes <= 12:
-    os.system('cls')
-    print(calendar.month(ano, mes))
-    indice = calendar.weekday(ano, mes, dia)
-    dias = ["Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sábado", "Domingo"]
-    print(f"{dia}/{mes}/{ano} é {dias[indice]}")
-else:
-    os.system('cls')
-    os.system('color 4')
-    print("Data inválida!")
-    time.sleep(2)
+def pintado(ano, mes, dia):
+    cal = calendar.month(ano, mes)
+    linhas = cal.split("\n")
+    verde = "\033[92m"
+    reset = "\033[0m"
+    calendario = []
+    for linha in linhas:
+        linha = linha.replace(f" {dia:2} ", f" {verde}{dia:2}{reset} ")
+
+        calendario.append(linha)   
+    return "\n".join(calendario)
+while True:
+    limpar()
+    os.system('color 0A')
+    ano = int(input("Digite o ano: "))
+    mes = int(input("Digite o mês (1-12): "))
+    if mes < 0 or mes > 12:
+        limpar()
+        os.system('color 4')
+        print("Mês inválido!")
+        time.sleep(2)
+        continue
+    if mes == 0:
+        limpar()
+        print(calendar.calendar(ano))
+        break
+    dia = int(input("Digite o dia: "))
+    try:
+        data = datetime(ano, mes, dia)
+        break
+    except ValueError:
+        limpar()
+        os.system('color 4')
+        print("Dia inválido!")
+        time.sleep(2)
+        continue
+limpar()
+print(pintado(ano, mes, dia))
+indice = data.weekday()
+dias = ["Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sábado", "Domingo"]
+print(f"\n{dia}/{mes}/{ano} é {dias[indice]}")
+time.sleep(2)
