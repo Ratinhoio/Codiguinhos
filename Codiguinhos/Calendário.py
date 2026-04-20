@@ -13,6 +13,12 @@ def pintado(ano, mes, dia):
 
         calendario.append(linha)   
     return "\n".join(calendario)
+def hoje():
+    return datetime.now()
+agora = hoje()
+limpar()
+print(f"{agora.strftime("%d/%m/%Y")}")
+time.sleep(5)
 while True:
     limpar()
     os.system('color 0A')
@@ -27,7 +33,7 @@ while True:
     if mes == 0:
         limpar()
         print(calendar.calendar(ano))
-        break
+        exit()
     dia = int(input("Digite o dia: "))
     try:
         data = datetime(ano, mes, dia)
