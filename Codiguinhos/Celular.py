@@ -1,5 +1,6 @@
 # Criar um celular com aplicativos
-import os, random, time, unicodedata, winsound
+import os, random, time, unicodedata, winsound, calendar
+from datetime import datetime
 # Funções:
 def limpar():
     os.system('cls')
@@ -29,10 +30,8 @@ def menu():
             break
         elif opcao == "2":
             limpar()
-            print("Tu achou mesmo que tinha?")
-            time.sleep(2)
-            print("Deu preguiça de fazer")
-            time.sleep(2)
+            calendario()
+            break
         elif opcao == "3":
             limpar()
             print("Tiau :(")
@@ -47,35 +46,55 @@ def menu():
             limpar()
             print("mano, só tem 3 opções \nE tu ainda consegue errar!")
             time.sleep(2)
+# Calculadora
 def calculadora():
     print("Bem-vindo à calculadora!")
     dormir(2)
     limpar()
     while True:
-        num1 = float(input("Digite o primeiro número: "))
+        num1 = input("Digite o primeiro número: ")
+        if not num1.isdigit():
+            limpar()
+            print("Burro!")
+            dormir(1)
+            limpar()
+            continue
         dormir(1)
         limpar()
+        num1 = float(num1)
+        
         print("Escolha a operação:")
-        dormir(1)
+        dormir(0.5)
         print("1. Adição")
         print("2. Subtração")
         print("3. Multiplicação")
         print("4. Divisão")
+        
         escolha = int(input("Digite o número da operação desejada: "))
-        if escolha > 4 or escolha <= 0:
-            limpar()
-            print("Opção inválida. Por favor, escolha uma operação válida.")
-            dormir(1)
-        elif not escolha.isdigit:
+        
+        if not escolha.isdigit():
             limpar()
             print("Burro!")
             dormir(1)
+            limpar()
+            continue
+        if escolha not in [1, 2, 3, 4]:
+            limpar()
+            print("Opção inválida. Por favor, escolha uma operação válida.")
+            dormir(1)
+        dormir(1)
+        limpar()
+        num2 = input("Digite o segundo número: ")
+        if not num2.isdigit():
+            limpar()
+            print("Burro!")
+            dormir(1)
+            limpar()
             continue
         dormir(1)
         limpar()
-        num2 = float(input("Digite o segundo número: "))
-        dormir(1)
-        limpar()
+        break
+    num2 = float(num2)
 
     if escolha in [1, 2, 3, 4]:
         if escolha == 1:
@@ -93,9 +112,53 @@ def calculadora():
                     print(f"O resultado da divisão é: {resultado}")
                 else:
                     print("Erro: Divisão por zero não é permitida.")
-                    
+# Calendário
+def pintado(ano, mes, dia):
+    cal = calendar.month(ano, mes)
+    linhas = cal.split("\n")
+    verde = "\033[92m"
+    reset = "\033[0m"
+    calendario = []
+    for linha in linhas:
+        linha = linha.replace(f" {dia:2} ", f" {verde}{dia:2}{reset} ")
 
-
-
-
+        calendario.append(linha)   
+    return "\n".join(calendario)
+def hoje():
+    return datetime.now()
+def calendario():
+    agora = hoje()
+    limpar()
+    while True:
+        limpar()
+        print(f"{agora.strftime("%d/%m/%Y")}")
+        os.system('color 0A')
+        ano = int(input("Digite o ano: "))
+        mes = int(input("Digite o mês (0-12): "))
+        if mes < 0 or mes > 12:
+            limpar()
+            os.system('color 4')
+            print("Mês inválido!")
+            time.sleep(2)
+            continue
+        if mes == 0:
+            limpar()
+            print(calendar.calendar(ano))
+            exit()
+        dia = int(input("Digite o dia: "))
+        try:
+            data = datetime(ano, mes, dia)
+            break
+        except ValueError:
+            limpar()
+            os.system('color 4')
+            print("Dia inválido!")
+            time.sleep(2)
+            continue
+    limpar()
+    print(pintado(ano, mes, dia))
+    indice = data.weekday()
+    dias = ["Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sábado", "Domingo"]
+    print(f"\n{dia}/{mes}/{ano} é {dias[indice]}")
+    time.sleep(2)
 menu()

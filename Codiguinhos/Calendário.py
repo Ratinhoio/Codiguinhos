@@ -17,13 +17,12 @@ def hoje():
     return datetime.now()
 agora = hoje()
 limpar()
-print(f"{agora.strftime("%d/%m/%Y")}")
-time.sleep(5)
 while True:
     limpar()
+    print(f"{agora.strftime("%d/%m/%Y")}")
     os.system('color 0A')
     ano = int(input("Digite o ano: "))
-    mes = int(input("Digite o mês (1-12): "))
+    mes = int(input("Digite o mês (0-12): "))
     if mes < 0 or mes > 12:
         limpar()
         os.system('color 4')
