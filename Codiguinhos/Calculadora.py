@@ -1,33 +1,63 @@
+import os, random, time, math 
+def dormir(segundos):
+    time.sleep(segundos)
+def limpar():
+    os.system('cls')
+limpar()
 print("Bem-vindo à calculadora!")
-print("Escolha a operação:")
-print("1. Adição")
-print("2. Subtração")
-print("3. Multiplicação")
-print("4. Divisão")
-
-escolha = input("Digite o número da operação desejada: ")
-
-if escolha in ['1', '2', '3', '4']:
-        num1 = float(input("Digite o primeiro número: "))
-        num2 = float(input("Digite o segundo número: "))
-
-        if escolha == '1':
-            resultado = num1 + num2
-            print(f"O resultado da adição é: {resultado}")
-        elif escolha == '2':
-            resultado = num1 - num2
-            print(f"O resultado da subtração é: {resultado}")
-        elif escolha == '3':
-            resultado = num1 * num2
-            print(f"O resultado da multiplicação é: {resultado}")
-        elif escolha == '4':
-            if num2 != 0:
-                resultado = num1 / num2
-                print(f"O resultado da divisão é: {resultado}")
-            else:
-                print("Erro: Divisão por zero não é permitida.")
-else:
+dormir(2)
+limpar()
+while True:
+    limpar()
+    num1 = input("Digite o primeiro número: ")
+    if not num1.replace('.', '', 1).replace('-', '', 1).isdigit():
+        limpar()
+        print("Burro!")
+        dormir(1)
+        limpar()
+        continue
+    limpar()
+    num1 = float(num1)
+    print("Operações disponíveis: +  -  *  x  /  √")
+    escolha = input("Digite a operação desejada: ")
+    if escolha not in ["+", "-", "*", "/", "√"]:
+        limpar()
         print("Opção inválida. Por favor, escolha uma operação válida.")
-
-
-
+        dormir(1)
+        limpar()
+        continue
+    if escolha == "√":
+        if num1 < 0:
+            print("Não existe raiz de número negativo!")
+            dormir(2)
+            continue
+        else:
+            print(f"Resultado: {math.sqrt(num1)}")
+            input("ENTER...")
+            continue             
+    limpar()
+    num2 = input("Digite o segundo número: ")
+    if not num2.replace('.', '', 1).replace('-', '', 1).isdigit():
+        limpar()
+        print("Burro!")
+        dormir(1)
+        limpar()
+        continue
+    num2 = float(num2)
+    dormir(0.5)
+    limpar()
+    if escolha == "+":
+        print(f"O resultado da adição é: {num1 + num2}")
+        dormir(1)
+    elif escolha == "-":
+        print(f"O resultado da subtração é: {num1 - num2}")
+        dormir(1)
+    elif escolha == "*":
+        print(f"O resultado da multiplicação é: {num1 * num2}")
+        dormir(1)
+    elif escolha == "/":
+        if num2 == 0:
+            print("Erro: Divisão por zero não é permitida!")
+        else:
+            print(f"O resultado da divisão é: {num1 / num2}")
+    input("ENTER...")

@@ -61,12 +61,12 @@ def calculadora():
         print("2. Subtração")
         print("3. Multiplicação")
         print("4. Divisão")
-        escolha = int(input("Digite o número da operação desejada: "))
+        escolha = input("Digite o número da operação desejada: ")
         if escolha > 4 or escolha <= 0:
             limpar()
             print("Opção inválida. Por favor, escolha uma operação válida.")
             dormir(1)
-        elif not escolha.isdigit:
+        elif not escolha.isdigit():
             limpar()
             print("Burro!")
             dormir(1)
