@@ -27,11 +27,9 @@ def menu():
         if opcao == "1":
             limpar()
             calculadora()
-            break
         elif opcao == "2":
             limpar()
             calendario()
-            break
         elif opcao == "3":
             limpar()
             print("Tiau :(")
@@ -53,65 +51,90 @@ def calculadora():
     limpar()
     while True:
         num1 = input("Digite o primeiro número: ")
-        if not num1.isdigit():
+        if not num1.replace('.', '', 1).isdigit():
             limpar()
             print("Burro!")
             dormir(1)
             limpar()
             continue
-        dormir(1)
+        dormir(0.5)
         limpar()
         num1 = float(num1)
-        
-        print("Escolha a operação:")
         dormir(0.5)
-        print("1. Adição")
-        print("2. Subtração")
-        print("3. Multiplicação")
-        print("4. Divisão")
-        
-        escolha = int(input("Digite o número da operação desejada: "))
-        
-        if not escolha.isdigit():
-            limpar()
-            print("Burro!")
-            dormir(1)
-            limpar()
-            continue
-        if escolha not in [1, 2, 3, 4]:
-            limpar()
-            print("Opção inválida. Por favor, escolha uma operação válida.")
-            dormir(1)
-        dormir(1)
+        while True:
+            escolha = input("Digite a operação desejada: ")
+            if escolha not in ["+", "-", "*", "/"]:
+                limpar()
+                print("Opção inválida. Por favor, escolha uma operação válida.")
+                dormir(1)
+                limpar()
+                continue
+            break
+        dormir(0.5)
         limpar()
         num2 = input("Digite o segundo número: ")
-        if not num2.isdigit():
+        if not num2.replace('.', '', 1).isdigit():
             limpar()
             print("Burro!")
             dormir(1)
             limpar()
             continue
-        dormir(1)
+        dormir(0.5)
         limpar()
         break
     num2 = float(num2)
 
-    if escolha in [1, 2, 3, 4]:
-        if escolha == 1:
+    if escolha in ["+", "-", "*", "/"]:
+        if escolha == "+":
                 resultado = num1 + num2
                 print(f"O resultado da adição é: {resultado}")
-        elif escolha == 2:
+                dormir(1)
+        elif escolha == "-":
                 resultado = num1 - num2
                 print(f"O resultado da subtração é: {resultado}")
-        elif escolha == 3:
+                dormir(1)
+        elif escolha == "*":
                 resultado = num1 * num2
                 print(f"O resultado da multiplicação é: {resultado}")
-        elif escolha == 4:
+                dormir(1)
+        elif escolha == "/":
                 if num2 != 0:
                     resultado = num1 / num2
                     print(f"O resultado da divisão é: {resultado}")
+                    dormir(1)
                 else:
                     print("Erro: Divisão por zero não é permitida.")
+    input("Pressione ENTER para continuar...")
+    while True:               
+        limpar()
+        os.system('color 0b')
+        print("1 - Calculadora")
+        print("2 - Menu")
+        print("3 - Sair")
+        opcao = input("O que quer fazer? > ")
+        if opcao == "1":
+            limpar()
+            calculadora()
+            break
+        elif opcao == "2":
+            limpar()
+            menu()
+            break
+        elif opcao == "3":
+            limpar()
+            print("Tiau :(")
+            time.sleep(2)
+            limpar()
+            exit()
+        elif not opcao.isdigit():
+            limpar()
+            print("Só pode número ne burrão")
+            time.sleep(2)
+        else:
+            limpar()
+            print("mano, só tem 2 opções \nE tu ainda consegue errar!")
+            time.sleep(2)
+        
 # Calendário
 def pintado(ano, mes, dia):
     cal = calendar.month(ano, mes)
@@ -131,21 +154,39 @@ def calendario():
     limpar()
     while True:
         limpar()
-        print(f"{agora.strftime("%d/%m/%Y")}")
+        print(f"{agora.strftime('%d/%m/%Y')}")
         os.system('color 0A')
-        ano = int(input("Digite o ano: "))
-        mes = int(input("Digite o mês (0-12): "))
+        ano = input("Digite o ano: ")
+        if not ano.isdigit():
+            limpar()
+            print("Apenas números!")
+            dormir(1)
+            continue
+        ano = int(ano)
+        mes = input("Digite o mês (0-12): ")
+        if not mes.isdigit():
+            limpar()
+            print("Apenas números!")
+            dormir(1)
+            continue
+        mes = int(mes)
         if mes < 0 or mes > 12:
             limpar()
             os.system('color 4')
             print("Mês inválido!")
-            time.sleep(2)
+            dormir(2)
             continue
         if mes == 0:
             limpar()
             print(calendar.calendar(ano))
-            exit()
-        dia = int(input("Digite o dia: "))
+            return
+        dia = input("Digite o dia: ")
+        if not dia.isdigit():
+            limpar()
+            print("Apenas números!")
+            dormir(1)
+            continue
+        dia = int(dia)
         try:
             data = datetime(ano, mes, dia)
             break
@@ -153,12 +194,12 @@ def calendario():
             limpar()
             os.system('color 4')
             print("Dia inválido!")
-            time.sleep(2)
+            dormir(2)
             continue
     limpar()
     print(pintado(ano, mes, dia))
     indice = data.weekday()
-    dias = ["Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sábado", "Domingo"]
+    dias = ["segunda-feira", "terça-feira", "quarta-feira", "quinta-feira", "sexta-feira", "sábado", "domingo"]
     print(f"\n{dia}/{mes}/{ano} é {dias[indice]}")
-    time.sleep(2)
+    input("Pressione ENTER para continuar...")
 menu()
