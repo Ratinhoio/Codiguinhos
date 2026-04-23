@@ -8,49 +8,46 @@ print("Bem-vindo à calculadora!")
 dormir(2)
 limpar()
 while True:
-        num1 = input("Digite o primeiro número: ")
-        if not num1.replace('.', '', 1).isdigit():
+    num1 = input("Digite o primeiro número: ")
+    if not num1.replace('.', '', 1).isdigit():
             limpar()
             print("Burro!")
             dormir(1)
             limpar()
             continue
-        dormir(0.5)
-        limpar()
-        num1 = float(num1)
-        dormir(0.5)
-        while True:
-            escolha = input("Digite a operação desejada: ")
-            if escolha not in ["+", "-", "*", "x", "/", "√"]:
+    dormir(0.5)
+    limpar()
+    num1 = float(num1)
+    dormir(0.5)
+    escolha = input("Digite a operação desejada: ")
+    if escolha not in ["+", "-", "*", "x", "/", "√"]:
                 limpar()
                 print("Opção inválida. Por favor, escolha uma operação válida.")
                 dormir(1)
                 limpar()
                 continue
-            elif escolha == "√":
-                num1 = float(num1)
+    if escolha == "√":
             if num1 < 0:
                 print("Não existe raiz de número negativo!")
                 dormir(2)
                 continue
-
+            else
             print(f"Resultado: {math.sqrt(num1)}")
             input("ENTER...")
-            break             
-        break
-        dormir(0.5)
-        limpar()
-        num2 = input("Digite o segundo número: ")
-        if not num2.replace('.', '', 1).isdigit():
-            limpar()
-            print("Burro!")
-            dormir(1)
-            limpar()
             continue
-        dormir(0.5)
+    dormir(0.5)
+    limpar()
+    num2 = input("Digite o segundo número: ")
+    if not num2.replace('.', '', 1).isdigit():
         limpar()
-        break
-num2 = float(num2)
+        print("Burro!")
+        dormir(1)
+        limpar()
+        continue
+    dormir(0.5)
+    limpar()
+    break
+    num2 = float(num2)
 
 if escolha in ["+", "-", "*", "x", "/", "√"]:
     if escolha == "+":
