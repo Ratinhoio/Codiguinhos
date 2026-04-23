@@ -1,3 +1,5 @@
+# Henrique Zonta Tramontina  RA: 1139226
+
 import os, time, random
 while True:
     os.system('cls')
@@ -37,8 +39,8 @@ while True:
         print("Você acertou!")
     else:
         os.system('cls')
-        print("Meus Deus que azadado!")
-        print("KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK")
+        print("Meus Deus que azarado!")
+        print("Você perdeu pra um número de 1 a 3. Reflita...")
         time.sleep(0.5)
         input("Aperte Enter para sair")
         os.system('cls')
@@ -67,7 +69,7 @@ while True:
         print("Você acertou! Próxima fase...")
     else:
         os.system('cls')
-        print("Muito burroKKKKKKKKKKKKKK")
+        print("Matemática básica te derrotou.")
         time.sleep(0.5)
         input("Aperte Enter para sair")
         os.system('cls')
@@ -93,7 +95,7 @@ while True:
     if resposta2 == (chute + resposta) ** chute - resposta:
         print("Vivo, por enquanto...")
     else:
-        print("Você errou!")
+        print("Entrou em pânico?")
         time.sleep(0.5)
         input("Aperte Enter para sair")
         continue
@@ -159,7 +161,7 @@ while True:
     if rsequencia1 == sequencia1 and rsequencia2 == sequencia2 and rsequencia3 == sequencia3 and rsequencia4 == sequencia4 and rsequencia5 == sequencia5:
         print("Parabéns, última fase! Você conseguiu sobreviver a todos os desafios, mas o mais difícil ainda está por vir...")
     else:
-        print("Você errou!")
+        print("Peixinho dourado ")
         time.sleep(0.5)
         input("Aperte Enter para sair")
         continue
@@ -188,5 +190,4 @@ while True:
         input("Aperte Enter para sair")
         os.system('cls')
         continue
-    
 
