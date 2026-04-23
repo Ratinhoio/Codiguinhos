@@ -3,6 +3,7 @@
 import os, time, random
 while True:
     os.system('cls')
+    os.system('color 0d')
     print("1 - Começar a tortura...")
     print("2 - Sair")
     escolha = input("> ")
