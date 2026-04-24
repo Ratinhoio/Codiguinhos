@@ -98,7 +98,7 @@ def detector():
     print("Vamos descobrir o quão incrível você é!")
     dormir(1)
     print("Analisando personalidade...")
-    porcentagem = (100)
+    porcentagem = random.randint(0, 100)
     dormir(2)
     limpar()
     print(f"De acordo com meus cálculos, você é 1% incrível!")
@@ -110,37 +110,59 @@ def detector():
     input("Pressione Enter para continuar...")
 def quiz():
     limpar()
-    print("Vamos ver o quanto você me conhece!")
-    dormir(1)
-    perguntas = [
-        {"pergunta": "Qual de nós dois é mais sapeca?", "resposta": "você"},
-        {"pergunta": "Qual é a minha cor favorita?", "resposta": "azul"},
-        {"pergunta": "Qual é o meu filme favorito?", "resposta": "inception"},
-        {"pergunta": "Qual é o meu animal favorito?", "resposta": "gato"},
-        {"pergunta": "Qual é o meu hobby favorito?", "resposta": "jogar videogame"}
-    ]
-    pontuacao = 0
-    for item in perguntas:
-        resposta_usuario = input(item["pergunta"] + " > ").lower()
-        if resposta_usuario == item["resposta"]:
-            print("Acertou! Você me conhece bem!")
-            pontuacao += 1
-        else:
-            print("Ops, não é bem isso. Mas tudo bem, você ainda é incrível!")
-        dormir(1)
-    print(f"Você acertou {pontuacao} de {len(perguntas)} perguntas!")
-    
+    print("Vamos ver seu conhecimento!")
+    dormir(2)
+    limpar()
+    resposta1 = input("Quem é mais sapeca? ")
+    if resposta1 == "voce":
+        print("Ainda bem que sabe")
+    elif resposta1 == "eu":
+        print("Hahahah, essa foi boa. Mas ta errado")
+    else:
+        print("??????")
+    input("Enter para proxima pergunta!")
+    limpar()
+    resposta2 = input("Quem manda mais reels? ")
+    if resposta2 == "voce":
+        print("Nada ve fia")
+    elif resposta2 == "eu":
+        print("AcertouKKKKKKK")
+    else:
+        print("??????")
+    input("Enter para proxima pergunta!")
+    limpar()
+    resposta3 = input("Quem se apaixonou primeiro? ")
+    if resposta3 == "voce":
+        print("SabiaKKKKKK")
+    elif resposta3 == "eu":
+        print("Hmmmmmmmmm, suspeito mas aceito")
+    else:
+        print("??????")
+    input("Enter para proxima pergunta!")
+    limpar()
+    resposta4 = input("Quem é mais ciumento(a)? ")
+    if resposta4 == "eu":
+        print("Concordo")
+    elif resposta4 == "voce":
+        print("eu??????")
+    else:
+        print("?????")  
+
 def menu():
     while True:
         limpar()
         print("1 - Elogios")
         print("2 - Detector")
+        print("3 - Quiz")
         escolha = input("O que você quer? > ")
         if escolha == "1":
             elogios()
             break
         elif escolha == "2":
             detector()
+            break
+        elif escolha == "3":
+            quiz()
             break
         else:
             limpar()
