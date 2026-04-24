@@ -47,7 +47,7 @@ def menu():
             print("1 - Recém-nascido")
             print("2 - Normal")
             print("3 - Macho Alpha")
-            opcao2 = input("Qaul dificuldade deseja? > ")
+            opcao2 = input("Qual dificuldade deseja? > ")
             if opcao2 == "1":
                 break
             # Criar outras dificuldades
