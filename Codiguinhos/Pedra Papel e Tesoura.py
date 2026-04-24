@@ -13,7 +13,10 @@ def efeito():
 jogadas = ["pedra", "papel", "tesoura"]
 pontos = 0
 pontospc = 0
-while True:
+limpar()
+print("Bem-vindo ao Pedra, Papel e Tesoura!")
+input("Aperte Enter para começar ")
+while pontos < 2 and pontospc < 2:
     limpar()
     jogada = input("Digite sua jogada> ").strip().lower()
     if jogada == "sair":
@@ -28,15 +31,29 @@ while True:
     print(f"Pc jogou {pc}")
     dormir(2)
     if jogada == pc:
+        limpar()
         print("Empatou")
     elif (jogada == "pedra" and pc == "tesoura") or (jogada == "papel" and pc == "pedra") or (jogada == "tesoura" and pc == "papel"):
+        limpar()
         print("vOce ganhou!")
         pontos += 1
     else:
+        limpar()
         print("pedeu:(")
         pontospc += 1
     dormir(2)
-    print(f"Voce tem {pontos} pontos")
+    print(f"Está {pontos} x {pontospc}")
+    dormir(1)
     input("Da enter ai ")
-    if pontos == 2:
-        break
+if pontos == 2:
+    limpar()
+    print("ebaaaa, vc vencieu!")
+    dormir(2)
+    input("Da enter ai ")
+    limpar()
+elif pontospc == 2:
+    limpar()
+    print("Perdeu pra um compuitadorKKKKKKKKKKKK!")
+    dormir(2)
+    input("Da enter ai ")
+    limpar()
