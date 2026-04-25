@@ -1,5 +1,4 @@
 # Henrique Zonta Tramontina  RA: 1139226
-
 import os, time, random
 while True:
     os.system('cls')
