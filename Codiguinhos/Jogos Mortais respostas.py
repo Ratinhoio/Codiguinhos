@@ -161,7 +161,7 @@ while True:
     if rsequencia1 == sequencia1 and rsequencia2 == sequencia2 and rsequencia3 == sequencia3 and rsequencia4 == sequencia4 and rsequencia5 == sequencia5:
         print("Parabéns, última fase! Você conseguiu sobreviver a todos os desafios, mas o mais difícil ainda está por vir...")
     else:
-        print("Peixinho dourado ")
+        print("Peixinho dourado tem mais memória que você...")
         time.sleep(0.5)
         input("Aperte Enter para voltar")
         continue

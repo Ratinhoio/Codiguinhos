@@ -33,7 +33,6 @@ while True:
     print("Aguarde...")
     time.sleep(0.5)
     os.system('cls')
-    print(numero)
     chute = int(input("Digite seu chute (1, 2 ou 3): "))
     if chute == numero:
         print("Você acertou!")
@@ -45,7 +44,6 @@ while True:
         input("Aperte Enter para sair")
         os.system('cls')
         continue
-        # Se o usuário errar, o sistema deve avacalhar chamando ele de azarado e apresentar a mensagem da morte (bem criativa kkk) encerrar o jogo com o comando quit().
     time.sleep(1.5)
     os.system('cls')
     print("Fase 2: Potência mortal")
@@ -63,7 +61,6 @@ while True:
     numero2 = random.randint(1, 10)
     numero3 = random.randint(1, 3)
     calculo = numero2 ** numero3
-    print(calculo)
     resposta =int(input(f"Qual é o resultado da operação {numero2} ^ {numero3}: "))
     if resposta == numero2 ** numero3:
         print("Você acertou! Próxima fase...")
@@ -90,9 +87,8 @@ while True:
     os.system('cls')
     print("FAÇA AGORA!")
     calculo = (chute + resposta) ** chute - resposta
-    print(calculo)
     resposta2 = int(input("(respostaFase1 + respostaFase2) ^ respostaFase1 - respostaFase2: "))
-    if resposta2 == (chute + resposta) ** chute - resposta:
+    if resposta2 == calculo:
         print("Vivo, por enquanto...")
     else:
         print("Entrou em pânico?")
@@ -143,25 +139,20 @@ while True:
     time.sleep(2)
     os.system('cls')
     os.system('color 0a') # Mudar o terminal para verde
-    print(sequencia1, sequencia2, sequencia3, sequencia4, sequencia5)
     rsequencia1 = int(input("Digite o primeiro número da sequência: "))
     os.system('cls')
-    print(sequencia2, sequencia3, sequencia4, sequencia5)
     rsequencia2 = int(input("Digite o segundo número da sequência: "))
     os.system('cls')
-    print(sequencia3, sequencia4, sequencia5)
     rsequencia3 = int(input("Digite o terceiro número da sequência: "))
     os.system('cls')
-    print(sequencia4, sequencia5)
     rsequencia4 = int(input("Digite o quarto número da sequência: "))
     os.system('cls')
-    print(sequencia5)
     rsequencia5 = int(input("Digite o quinto número da sequência: "))
     os.system('cls')
     if rsequencia1 == sequencia1 and rsequencia2 == sequencia2 and rsequencia3 == sequencia3 and rsequencia4 == sequencia4 and rsequencia5 == sequencia5:
         print("Parabéns, última fase! Você conseguiu sobreviver a todos os desafios, mas o mais difícil ainda está por vir...")
     else:
-        print("Peixinho dourado ")
+        print("Peixinho dourado tem mais memória que você.")
         time.sleep(0.5)
         input("Aperte Enter para voltar")
         continue
