@@ -101,8 +101,8 @@ while True:
     if rolada == "TempoIli":
         tempoIli()
     tempoPausado = time.time()
-    num1 = random.randint(1, 3)
-    num2 = random.randint(1, 3)
+    num1 = random.randint(1, 10)
+    num2 = random.randint(1, 10)
     sinal = random.choice(sinais)
     if sinal == "+":
         resultado = num1 + num2
