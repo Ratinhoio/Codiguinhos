@@ -33,6 +33,7 @@ while True:
     print("Aguarde...")
     time.sleep(0.5)
     os.system('cls')
+    print(numero)
     chute = int(input("Digite seu chute (1, 2 ou 3): "))
     if chute == numero:
         print("Você acertou!")
