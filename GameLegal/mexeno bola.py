@@ -48,11 +48,13 @@ while rodando:
         deceno = False
     elif yBola - 20 <= yBarra + 10 and yBola + 20 >= yBarra and xBola >= xBarra and xBola <= xBarra + 100:
         deceno = True
+        yBola = yBarra + 31
         pontuaçao += 1
         mult += 0.1 
-    elif yBola + 20 >= yBarra2 and yBola - 20 <= yBarra2 - 10 and xBola >= xBarra2 and xBola <= xBarra2 + 100:
+    elif yBola + 20 >= yBarra2 and yBola - 20 <= yBarra2 + 10 and xBola >= xBarra2 and xBola <= xBarra2 + 100:
         deceno = False
         pontuaçao += 1
+        yBola = yBarra2 - 31
         mult += 0.1 
     if deceno:
         yBola += 2 * mult
