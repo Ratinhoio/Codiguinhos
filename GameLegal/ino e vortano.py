@@ -1,4 +1,5 @@
 import pygame
+import time
 pygame.init()
 largura = 800
 altura = 600
@@ -7,8 +8,10 @@ pygame.display.set_caption("Meu joguinhoooo")
 preto = (0,0,0)
 branco = (255, 255, 255)
 rodando = True
+ino = True
+subino = True 
 xBola = 0
-yBola = 0
+yBola = 300
 fps = pygame.time.Clock()
 while rodando:
     eventos = pygame.event.get()
@@ -16,14 +19,26 @@ while rodando:
         if evento.type == pygame.QUIT:
             rodando = False
     tela.fill(branco)
-    pygame.draw.circle( tela, preto, (xBola,300), 50, 5)
-    if xBola == 0:
-        while True:
-            xBola = 500
-            
-
+    fps.tick(120)
+    pygame.draw.circle( tela, preto, (xBola, yBola), 50) # largura, altura e raio
+    if xBola <= 50:
+        ino = True
+    elif xBola >= 750:
+        ino = False
+    if ino:
+        xBola += 1
+    else:
+        xBola -= 1
+        
+    if yBola <= 50:
+        subino = True
+    elif yBola >= 550:
+        subino = False
+    if subino:
+        yBola += 1
+    else:
+        yBola -= 1
         
         
-    
     pygame.display.update()
 pygame.quit()

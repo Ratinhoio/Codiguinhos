@@ -23,6 +23,6 @@ while rodando:
     pygame.draw.circle( tela, preto, (450, 300), 50)
     pygame.draw.circle( tela, branco, (450, 300), 45)
     pygame.draw.circle( tela, preto, (700, 300), 50)
-    pygame.draw.circle( tela, branco, (700, 300), 45)
+    pygame.draw.circle( tela, branco, (700, 300), 45, )
     pygame.display.update()
 pygame.quit()
