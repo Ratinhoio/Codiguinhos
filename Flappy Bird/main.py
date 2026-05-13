@@ -11,17 +11,15 @@ rodando = True
 x = 400
 y = 300
 pulo = 0
-gravidade = 0.3
-xPare = 700
+gravidade = 0.2
+xPare = 1500
 yPare = 0
 larPare = 80
-altPare = random.randint(100, 400)
+altPare = random.randint(20, 400)
 yPare2 = altPare + 180
 larPare2 = 80
 altPare2 = 600
 xPare3 = 1000
-altPare3 = random.randint(100, 400)
-yPare3 = altPare3 + 180
 fps = pygame.time.Clock()
 os.system('cls')
 while rodando:
@@ -30,29 +28,31 @@ while rodando:
         if evento.type == pygame.QUIT:
             rodando = False
         if evento.type == pygame.KEYDOWN:
-            if evento.key == pygame.K_SPACE:
-                pulo = -8
+            if evento.key == pygame.K_SPACE or evento.key == pygame.K_UP:
+                pulo = -6.5
 
     tela.fill(branco)
     fps.tick(120)
     pulo += gravidade
     y += pulo
-    flappy(tela, x, y)
+    pygame.draw.circle(tela,amarelo,(x, y),25)
+    pygame.draw.polygon(tela,vermelho,[(x+10, y+22),(x+20, y-13),(x+35, y+5)])
+    pygame.draw.circle(tela,branco,(x+13, y-15),6)
+    pygame.draw.circle(tela,preto,(x+13, y-15),3)
     pygame.draw.rect (tela, preto, (xPare, yPare, larPare, altPare))
     pygame.draw.rect (tela, preto, (xPare, yPare2, larPare2, altPare2))
-    pygame.draw.rect (tela, preto, (xPare3, yPare, larPare, altPare3))
-    pygame.draw.rect (tela, preto, (xPare3, yPare3, larPare2, altura - yPare3))
+    passaro = pygame.Rect(x-25, y-25, 50, 50)
+    paredeCima = pygame.Rect(xPare, yPare, larPare, altPare)
+    paredeBaixo = pygame.Rect(xPare, yPare2, larPare2, altPare2)
     xPare -= 3
     xPare3 -= 3
     if xPare <= -80:
         xPare = 810
-        altPare = random.randint(150, 250)
-        yPare2 = altPare + 180
-    
-    if xPare3 <= -80:
-        xPare3 = 810
-        altPare3 = random.randint(350, 450)
-        yPare3 = altPare3 + 180
+        altPare = random.randint(20, 400)
+        yPare2 = altPare + random.randint(125,300)
+    if y > 620 or y < -20 or passaro.colliderect(paredeCima) or passaro.colliderect(paredeBaixo):
+        rodando = False
+
     pygame.display.update()
 pygame.quit()
  
