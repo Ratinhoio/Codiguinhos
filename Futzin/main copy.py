@@ -8,7 +8,7 @@ preto = (0,0,0)
 branco = (255, 255, 255)
 vermelho = (255, 0, 0)
 rodando = True
-fonte = pygame.font.SysFont(None, 20)
+fonte = pygame.font.SysFont("arial", 20)
 xBola = 400
 yBola = 300
 rBola = 50
@@ -19,7 +19,8 @@ imagem = pygame.transform.scale(imagem, (20, 20))
 imagem = pygame.transform.rotate(imagem, 0)
 campo = pygame.image.load("Campo.jpg")
 campo = pygame.transform.scale(campo, (800, 600))
-
+pygame.mixer.music.load("")
+pygame.mixer.muisc.play(-1) #Looping infinito
 fps = pygame.time.Clock()
 while rodando:
     eventos = pygame.event.get()
@@ -34,6 +35,8 @@ while rodando:
     tela.blit(imagem, (xBola,yBola))
     pygame.key.get_pressed()
     teclas = pygame.key.get_pressed()
+    if teclas[pygame.K_ESCAPE]:
+        break
     if teclas[pygame.K_d]:
         xBola += 15
     if teclas[pygame.K_a]:
@@ -52,5 +55,7 @@ while rodando:
         yBola = 0
     if xBola > 700 and yBola > 250 and yBola < 350:
         texto = fonte.render("GOLLLLLLL", True, preto)
+    texto = fonte.render(f"Posiçao: x = {xBola} e y = {yBola}",  True, branco)
+    tela.blit(texto, (10,10))
     pygame.display.update()
 pygame.quit()
