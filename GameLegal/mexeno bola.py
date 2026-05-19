@@ -17,6 +17,9 @@ xBarra2 = 400
 yBarra2 = 500
 mult = 1
 pontuaçao = 0
+imagem = pygame.image.load("shrek.jpg")
+imagem = pygame.transform.scale(imagem, (800, 600))
+imagem = pygame.transform.rotate(imagem, 0)
 fps = pygame.time.Clock()
 os.system('cls')
 while rodando:
@@ -26,6 +29,7 @@ while rodando:
             rodando = False
     tela.fill(branco)
     fps.tick(120)
+    tela.blit(imagem, (0,0))
     pygame.draw.rect(tela, preto, (xBarra,yBarra,100,10))
     pygame.draw.rect(tela, preto, (xBarra2,yBarra2,100,10))
     pygame.draw.circle( tela, preto, (xBola, yBola), 20) # largura, altura e raio

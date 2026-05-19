@@ -29,7 +29,7 @@ while rodando:
             rodando = False
         if evento.type == pygame.KEYDOWN:
             if evento.key == pygame.K_SPACE or evento.key == pygame.K_UP:
-                pulo = -6.5
+                pulo = -6
 
     tela.fill(branco)
     fps.tick(120)
